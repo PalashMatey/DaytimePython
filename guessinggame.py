@@ -4,7 +4,7 @@ print 'Please think of a number between 0-100!'
 low = 0
 high = 100
 ans = 100/2
-
+print 'think hard!'
 
 while True:
 
