@@ -1,3 +1,3 @@
-This is Learn Python the Hard Way tutorial exercises. 
+Basic Python programs.
 
-This is still a work in progress.
+A combination of Learn Python the Hard Way, Edx tutorial or anything that i find interesting!
