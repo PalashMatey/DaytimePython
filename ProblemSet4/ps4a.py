@@ -167,38 +167,43 @@ def isValidWord(word, hand, wordList):
     Returns True if word is in the wordList and is entirely
     composed of letters in the hand. Otherwise, returns False.
 
-    Does not mutate hand or wordList.
-   
+    Does not mutate hand or wordList.  
     word: string
     hand: dictionary (string -> int)
     wordList: list of lowercase strings
     """
     newlist = []
-    flag = False
+    check = hand.copy()
     for let in word:
 	if let in hand.keys():
 		newlist.append(let)
-	else:
+		check[let]=check[let]-1
+    for i in check:
+	if check[i]<0:
 		return False
-    if len(newlist) == len(word):
-	c = ''.join(newlist)
-    	if c in wordList:
-		return True
-    	else:
-		return False
-#
+    c = ''.join(newlist)
+    newdic = getFrequencyDict(c)
+    if c in wordList:
+	return True
+    else:
+	return False
 # Problem #4: Playing a hand
 #
 
 def calculateHandlen(hand):
     """ 
     Returns the length (number of letters) in the current hand.
-    
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
-
+    newdic = hand.copy()
+    newlist = []
+    for n in newdic:
+	while newdic[n]>0:
+		newlist.append(n)
+		newdic[n] = newdic[n]-1
+    c = ''.join(newlist)
+    return len(c)
 
 
 def playHand(hand, wordList, n):
