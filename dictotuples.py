@@ -2,24 +2,21 @@ def dict_interdiff(d1,d2):
 	toreturn = ()
 	rd1 = {}
 	rd2 = {}
-	if len(rd1)<len(rd2):
-		for i in range(len(d1),len(d2)):
-			d1[i]=0
-	else:
-		for i in range(len(d2),len(d1)):
-                        d2[i]=0
-	print d1
-	print d2
+
 	for (i1,n1),(i2,n2) in zip(d1.items(),d2.items()):
+		print 'D1 index,value pair is: ' + str(i1)+ ' '+str(n1)
+		print 'D2 index,value pair is: ' + str(i2)+ ' '+str(n2)
 		if i1 == i2:
 			rd1[i1] = n1+n2
 		else:
-			if i1<i2:
+			if i1 not in d2.keys():
 				rd2[i1]= n1
+				print 'i1 not in d2'
+				#rd2[i2]= n2
+			if i2 not in d1.keys():
 				rd2[i2]= n2
-			else:
-				rd2[i2]= n2
-				rd2[i1]= n1
+				print 'i2 not in d1'
+				#rd2[i1]= n1
 	print rd1
 	print rd2
 	toreturn+(rd1,rd2)
