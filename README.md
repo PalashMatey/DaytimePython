@@ -6,5 +6,5 @@ Working on the MITEdx course :
 Week 1,2,3,4,5 completed.
 
 
-Week 6 ongoing
+Week 6 -Classes Lecture completed.  Ongoing - Object Oriented Programming
 
