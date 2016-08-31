@@ -5,7 +5,6 @@ import sys
 
 n = int(raw_input().strip())
 arr = map(int,raw_input().strip().split(' '))
-
-for i in arr:
-	print i
-
+print len(arr)
+for i in reversed(arr):
+	print i,
