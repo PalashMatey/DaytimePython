@@ -10,12 +10,12 @@ def minMutation( start, end, bank):
         :rtype: int
         """
         flag = False
+        if not bank:
+            return -1
         for stringPresent in bank:
             if(stringPresent == end):
                 print "Present in bank"
                 flag = True
-            else:
-                flag = False
         sum = 0
         dictStart = {}
         dictEnd = {}
@@ -23,29 +23,31 @@ def minMutation( start, end, bank):
         if(flag == True):
             for ele in start:
                 if ele in dictStart:
-                    dictStart['ele'] += 1
-                    print "Added to increment " ,ele,  dictStart['ele']
+                    dictStart[ele] += 1
                 else:
-                    dictStart['ele'] = 1
-                    print "Start values of element " ,ele, dictStart['ele']
+                    dictStart[ele] = 1
+            print "Dict Start: ", dictStart
             for ele2 in end:
                 if ele2 in dictEnd:
-                    increment = dictEnd['ele2']
-                    increment = increment + 1
-                    dictEnd['ele2'] = increment
+                    dictEnd[ele2] += 1
                 else:
-                    dictEnd['ele2'] = 1
-                    print "End Values of the Element", ele2, dictEnd['ele2']
+                    dictEnd[ele2] = 1
+            print "Dict End: " , dictEnd
+        else:
+            return -1
         for (k,v),(k2,v2) in zip(dictStart.items(),dictEnd.items()):
             if(k == k2):
                 dictResult[k] = abs(v-v2)
-                print k,dictResult[k]
+            else:
+                dictResult[k] = v
+            print "Dict Result: ", dictResult
         for eleResult in dictResult:
             if (dictResult[eleResult] > 0):
                 sum = sum + dictResult[eleResult]
             
-        return sum
+        return sum/2
 
-returnedSum = minMutation("AACCGGTT","AACCGGTA",["AACCGGTA"])
+returnedSum = minMutation("AACCGGTT","AACCGCAA",["AACCGGTA","AACCGGAA","AACCGCAA"])
+
 print returnedSum
 
