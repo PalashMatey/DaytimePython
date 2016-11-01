@@ -2,7 +2,7 @@
 
 import sys
 
-
+print "Hello"
 n = int(raw_input().strip())
 arr = map(int,raw_input().strip().split(' '))
 print len(arr)
