@@ -47,7 +47,7 @@ def minMutation( start, end, bank):
             
         return sum/2
 
-returnedSum = minMutation("AACCGGTT","AACCGCAA",["AACCGGTA","AACCGGAA","AACCGCAA"])
+returnedSum = minMutation("AACCGGTT","AAACGGTA",["AACCGGTA", "AACCGCTA", "AAACGGTA"])
 
 print returnedSum
 
