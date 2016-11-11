@@ -11,7 +11,8 @@ class NumArray(object):
             # print self.dp[i-1]
             self.dp[i] += self.dp[i-1]
         
-
+    def __repr__(self):
+        return str(self.dp)
             
 
     def sumRange(self, i, j):
@@ -28,5 +29,6 @@ class NumArray(object):
 nums = [2,12,13,4,5,6]
 numArray = NumArray(nums)
 print numArray
+
 # numArray.sumRange(0, 1)
 # numArray.sumRange(1, 2)
