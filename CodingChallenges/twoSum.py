@@ -10,7 +10,7 @@ def twoSum(numbers, target):
                 return (dictStore[target-num]+1),i+1
             dictStore[num] = i
                     
-        
+
 
 
 answer = twoSum([2,3,4],6)
