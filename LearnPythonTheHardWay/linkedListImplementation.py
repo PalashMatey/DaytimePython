@@ -16,7 +16,7 @@ class Node:
         self.next = newNext
     
     def __str__(self):
-        return str(self.data)
+        return str(self)
 
 
 class UnorderedList:
@@ -67,7 +67,33 @@ class UnorderedList:
         else:
             previous.setNext(current.getNext())
     
-    
+    def insert(self,atValue):
+        current = self.head
+        previous = None
+        flag = False
+        while current != None and not flag:
+            if (current.getData() == atValue):
+                flag = True
+                temp = Node(atValue)
+                print "The temporary data is: ", temp.getData()
+                temp.setNext(current)
+                previous.setNext(temp)
+                return flag
+            else:
+                previous = current
+                current = current.getNext()
+
+    def print_list(self):
+        current = self.head
+        while current != None:
+            print current.getData()
+            current = current.getNext()
+        print
+        
+
+        
+                
+                
         
 
 
@@ -78,11 +104,13 @@ mylist.add(17)
 mylist.add(93)
 mylist.add(26)
 mylist.add(54)
+mylist.insert(18)
 
-print(mylist.size())
+mylist.print_list()
+print "The size of thelist", (mylist.size())
 print(mylist.search(93))
 print(mylist.search(100))
-
+print "Is inserted Element present:",(mylist.search(18))
 mylist.add(100)
 print(mylist.search(100))
 print(mylist.size())
