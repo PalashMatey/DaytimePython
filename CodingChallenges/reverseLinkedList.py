@@ -59,10 +59,10 @@ mylist = Solution()
 mylist.add(1)
 mylist.add(2)
 mylist.add(3)
-print "The list"
+print "The list: ",
 mylist.print_list()
 
 print 
 mylist.reverseList()
-print "Reversed List"
+print "Reversed List: ",
 mylist.print_list()
