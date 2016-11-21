@@ -2,6 +2,8 @@ Python Challenges Updated.
 
 Done with Linked List and Trees basic challenge programs. 
 
+Moving on to Binary Trees. 
+
 Basic Python programs.
 
 Learn Python the Hard Way completed.
