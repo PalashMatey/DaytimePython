@@ -1,5 +1,8 @@
 Python Challenges Updated.
 
+Working on MIT OPENCOURSEWARE 6.0.0.6 Data Structures and Algorithms
+Lec1 completed
+
 Done with Linked List and Trees basic challenge programs. 
 
 Moving on to Binary Trees. 
