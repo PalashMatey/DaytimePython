@@ -12,7 +12,7 @@ def algorithm1(problem, trace = None):
 
     # the recursive subproblem will involve half the number of columns
     mid = problem.numCol // 2
-
+    print mid
     # information about the two subproblems
     (subStartR, subNumR) = (0, problem.numRow)
     (subStartC1, subNumC1) = (0, mid)
