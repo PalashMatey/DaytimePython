@@ -1,3 +1,4 @@
+import heapq
 def thirdMax(nums):
         """
         :type nums: List[int]
@@ -14,7 +15,7 @@ def thirdMax(nums):
             if n > l[0] and n not in l:
             
                 print heapq.heappushpop(l, n)
-        return l[0] if l[0] != float('-inf') else max(l)
+        #return l[0] if l[0] != float('-inf') else max(l)
         #Bascially O(n) means that I can go through the array just once
 
 listOfNumbers = [1,2,3,4,5]
