@@ -20,12 +20,14 @@ def parse_data(data_collected):
     #running through to get details of all the winners
     for i in range(0,lengthOfResults):
         dataList = []
-        detailedUrl = data_collected['results'][i]['films'][0]['Detail URL']
-        year = data_collected['results'][i]['year']
-        #title present in both 'film' and 'Detail Url' --> using 'Detail Url'' to get 'Title'(Although it takes longer)
-        #
-        title = collect_data(detailedUrl)
-        title = title['Title']
+        try:
+            detailedUrl = data_collected['results'][i]['films'][0]['Detail URL']
+            year = data_collected['results'][i]['year']
+        #title present in both 'films'['Film'] and 'Detail Url'. I am using 'Detail Url'' to get 'Title'(Although it takes longer) but seems less ambiguous
+            title = collect_data(detailedUrl)
+            title = title['Title']
+        except KeyError:
+            print 'Check for missing data'
 
         #For some Winners --> Budget Field is missing
         #convert_budget --> parses the Budget Field --> returning Float
@@ -35,7 +37,7 @@ def parse_data(data_collected):
             budget = convert_budget(budget)
             movieBudget.append(budget)
         except KeyError:
-            #Placeholder Budget Value --> Makes parsing easier --> Value replaced with Mean during Average Calculation
+            #Placeholder Budget Value --> Makes parsing easier
             budget = "US$0 million"
             budget = convert_budget(budget)
             movieBudget.append(budget)
@@ -66,6 +68,7 @@ def convert_budget(budget):
         return process_budget(winMovieBudget[0],False)
     
 def process_budget(winMovieBudget , flag):
+    PoundtoDollar = 1.27
     if flag == True:
     
         if ',' in winMovieBudget:
@@ -81,23 +84,21 @@ def process_budget(winMovieBudget , flag):
         #conversion rate for pound -> Dollar is currently at 1.27
         if ',' in winMovieBudget:
             winMovieBudget = winMovieBudget.replace(',','')
-            return float(winMovieBudget) * 1.27
+            return float(winMovieBudget) * PoundtoDollar
         if '.' in winMovieBudget:
-            winMovieBudget = float(winMovieBudget) * 1000000 *1.27
+            winMovieBudget = float(winMovieBudget) * 1000000 * PoundtoDollar
             return winMovieBudget
         else:
-            return float(winMovieBudget) * 1000000 * 1.27
+            return float(winMovieBudget) * 1000000 * PoundtoDollar
 
 def find_average(movieBudgets):
-    #Taking the mean for those Budget Values which are not available 
+    #Decided to ignore 'Not Available Values'
+    movieBudgetLength = len(movieBudgets)
     for num in range(0,len(movieBudgets)):
         if movieBudgets[num] == 0:
-            try:
-                movieBudgets[num] = (movieBudgets[num-1] + movieBudgets [num + 1]) / 2
-            except:
-                pass
-    
-    avg = sum(movieBudgets)/float(len(movieBudgets))
+            movieBudgetLength -= 1
+
+    avg = sum(movieBudgets)/float(movieBudgetLength)
     print 'The average budget of these movies is $%.2f'%(avg)
     
 
