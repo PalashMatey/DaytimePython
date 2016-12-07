@@ -14,7 +14,7 @@ def parse_data(data_collected):
     tableData = []
     movieBudget = []
     lengthOfResults =len(data_collected['results'])
-    print 'Year \t\t  Title \t\t Budget'
+    print 'Year \t\t  Title \t\t\t\t\t Budget'
     for i in range(0,lengthOfResults):
         dataList = []
         detailedUrl = data_collected['results'][i]['films'][0]['Detail URL']
@@ -23,44 +23,57 @@ def parse_data(data_collected):
         try:
             budget = collect_data(detailedUrl)
             budget = budget['Budget']
-            movieBudget.append(convert_budget(budget))
+            budget = convert_budget(budget)
+            movieBudget.append(budget)
 
         except KeyError:
             budget = "US$1 million"
-            movieBudget.append(convert_budget(budget))
-        # dataList.append(year)
-        # dataList.append(title)
-        # dataList.append(budget)
-        # tableData.append(dataList)
-        print ' %s \t\t %s \t\t %s ' %(year.strip(''),title.lstrip(''),budget.lstrip())
-    # for row in tableData:
-    #     try:
-    #         print("{: >25} {: >25} {: >25}".format(*row))
-    #     except UnicodeDecodeError:
-    #         print row[0],row[1],row[2]
-
-    
+            budget = convert_budget(budget)
+            movieBudget.append(budget)
+        print ' %s \t\t %s \t\t\t\t\t\t $%s ' %(year.strip()[:4],title.strip(),str(budget).strip())
+   
     print 'Movie Budgets are',movieBudget
-    #print 'Length of MovieBudget array is',len(movieBudget)
+    find_average(movieBudget)
+    
 
 def convert_budget(budget):
     budget = budget.strip()
-    #print budget
-    #if '$' in budget:
-    winMovieBudget = re.findall(r"\$?([1-9]?[0-9,|.]+)",budget)
-    #else:
-    #    winMovieBudget = re.findall(r"\u00a3([1-9]?[0-9,|.]+)",budget)
-    #    print 'Pound actually got executed',winMovieBudget
     
-    if ',' in winMovieBudget[0]:
-        winMovieBudget = winMovieBudget[0].replace(',','')
-        return float(winMovieBudget)
-    if '.' in winMovieBudget[0]:
-        winMovieBudget = float(winMovieBudget[0]) * 1000000
-        return winMovieBudget
+    if '$' in budget:
+        winMovieBudget = re.findall(r"\$?([0-9]?[0-9,|.]+)",budget)
+        return process_budget(winMovieBudget[0], True)
     else:
-        return float(winMovieBudget[0]) * 1000000
+        winMovieBudget = re.findall(r"\$?([0-9]?[0-9,|.]+)",budget)
+        return process_budget(winMovieBudget[0],False)
+    
 
+def find_average(movieBudgets):
+
+    avg = sum(movieBudgets)/float(len(movieBudgets))
+    print 'The average budget of these movies is', avg
+    print 'In millions the average budget is ', avg / 1000000
+
+def process_budget(winMovieBudget , flag):
+    if flag == True:
+    
+        if ',' in winMovieBudget:
+            winMovieBudget = winMovieBudget.replace(',','')
+            return float(winMovieBudget)
+        if '.' in winMovieBudget:
+            winMovieBudget = float(winMovieBudget) * 1000000
+            return winMovieBudget
+        else:
+            return float(winMovieBudget) * 1000000
+    else:
+        if ',' in winMovieBudget:
+            winMovieBudget = winMovieBudget.replace(',','')
+            
+            return float(winMovieBudget) * 1.27
+        if '.' in winMovieBudget:
+            winMovieBudget = float(winMovieBudget) * 1000000 *1.27
+            return winMovieBudget
+        else:
+            return float(winMovieBudget) * 1000000 * 1.27
 
 
 url = "http://oscars.yipitdata.com/"
