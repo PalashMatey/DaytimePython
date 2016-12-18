@@ -1,20 +1,19 @@
-Python Challenges Updated.
-
-Working on MIT OPENCOURSEWARE 6.0.0.6 Data Structures and Algorithms
-Lec1 completed
-
+#Coding Challenges
+Completed Coding Challenges in Python. 
 Done with Linked List and Trees basic challenge programs. 
 
-Moving on to Binary Trees. 
+#MIT OPENCOURSEWARE 6.0.0.6 Data Structures and Algorithms
+Lec2 ongoing.
 
-Basic Python programs.
+#Learn Python the Hard Way
+Completed
 
-Learn Python the Hard Way completed.
-
-Working on the MITEdx course :
-Week 1,2,3,4,5 completed
-
-Started with HTML5,CSS and JavaScript 
- 
+#MITEdx Course: Introduction to Computer Science and Programming
+Week 1,2,3,4,5 completed.
 Week 6 -Classes Lecture completed.  Ongoing - Object Oriented Programming
+
+#Microsoft-DEV211.1x: Javascript, HTML and CSS Web Development
+Module 3 ongoing...
+ 
+
 
