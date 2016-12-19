@@ -18,9 +18,9 @@ p2 = ColumbiaPerson('John')
 p3 = ColumbiaPerson('John')
 p4 = personClass.Person('John')
 
-print p1.getIdNum()
-print p2.getIdNum()
-print p1 < p2
-print p3 < p2
-print p4 < p1 #Comparing Names here
-#print p1 < p4 #Compares IdNum here
+# print p1.getIdNum()
+# print p2.getIdNum()
+# print p1 < p2
+# print p3 < p2
+# print p4 < p1 #Comparing Names here
+# #print p1 < p4 #Compares IdNum here

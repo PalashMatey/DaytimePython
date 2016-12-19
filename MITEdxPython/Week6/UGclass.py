@@ -16,5 +16,5 @@ def isStudent(obj):
 
 s1 = UG('Fred', 2016)
 s2 = Grad('Angela')
-isStudent(s1)
-isStudent(s2)
+print isStudent(s1)
+print isStudent(s2)
