@@ -1,6 +1,4 @@
 #Coding Challenges
-Completed Coding Challenges in Python. 
-Done with Linked List and Trees basic challenge programs. 
 
 #MIT OPENCOURSEWARE 6.0.0.6 Data Structures and Algorithms
 Lec2 ongoing.
