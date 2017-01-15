@@ -75,12 +75,13 @@ g2 = Grad('George Steinbrenner')
 
 six00 = Grades()
 six00.addStudent(g1)
+
 six00.addStudent(ug2)
 six00.addStudent(ug1)
 six00.addStudent(g2)
 
 for s in six00.allStudents():
-    print s
+    six00.addGrade(s,75)
 
 six00.addGrade(g1, 100)
 six00.addGrade(g2, 25)
