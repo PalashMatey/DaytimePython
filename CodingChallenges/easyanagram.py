@@ -5,7 +5,9 @@ def isAnagram( s, t):
         :rtype: bool
         """
 
+        # return sorted(s) == sorted(t)
         dic1,dic2 = {},{}
+
         for item in s:
             dic1[item] = dic1.get(item,0) + 1
         for item in t:
