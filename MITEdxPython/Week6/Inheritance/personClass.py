@@ -25,12 +25,11 @@ class Person(object):
     def __str__(self):
         return self.name
 
-# me = Person("Palash Sushil Matey")
-# print me
-# me.getLastName()
+me = Person("Palash Sushil Matey")
+print me
+me.getLastName()
 # me.setBirthday(06,06,1992)
-
-# print me.getAge()
+print me.getAge()
 # #print me.lastname
 # her = Person("Chandni Sarda")
 # her.getLastName()
