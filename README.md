@@ -1,4 +1,5 @@
-#Coding Challenges
+#Leetcode Solutions
+74 problems completed
 
 #Learn Python the Hard Way
 Completed
