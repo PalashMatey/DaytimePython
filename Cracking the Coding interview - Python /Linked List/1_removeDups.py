@@ -43,8 +43,32 @@ class LinkedList:
                 seen.append(current.data)
                 prev = current
                 current = current.next
-                
-         
+
+    def removeDupsSinglePointer(self):
+        if self.head is None:
+            return None
+        current = self.head
+        seen = set([current.data])
+        while current.next:
+            if current.next.data in seen:
+                current.next = current.next.next
+            else:
+                seen.add(current.next.data)
+                current = current.next
+    
+                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    # def removeDupsNoTempBuffer(self):
+        
         
 
 
@@ -54,8 +78,18 @@ ll.add(0)
 ll.add(9)
 ll.add(10)
 ll.add(1)
-
+ll.add(9)
+ll.add(20)
+ll.add(30)
+ll.add(10)
+ll.add(9)
+print 'Original List: ',
 ll.print_linkedList()
-ll.removeDupsTempBuffer()
-print 'After removing duplicates'
+print '\n'
+
+
+#ll.removeDupsTempBuffer()
+#print 'After removing duplicates Using two pointers: ',
+ll.removeDupsSinglePointer()
+print 'After removing duplicates Using Single pointer: ',
 ll.print_linkedList()
