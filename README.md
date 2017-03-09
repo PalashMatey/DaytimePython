@@ -10,6 +10,7 @@ Completed
 #Cracking the Coding Interview
 1. Array and String
 2. Linked List
+3. Stacks and Queues
  
 
 
