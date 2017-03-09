@@ -1,4 +1,3 @@
-#Given the node that must be deleted, we must delete the node. 
 
 class ListNode(object):
     def __init__(self,x):
@@ -32,34 +31,33 @@ class LinkedList(object):
         while(temp):
             print temp.data,
             temp = temp.next
+
+    def palindromeLinkedList(self,l1):
         
-    def deleteNode(self, node):
-        if node is None or node.next is None:
-            return False
-        node.data = node.next.data
-        node.next = node.next.next
-
-    def printNode(self,node):
-        if node:
-            print '\n',node.data
-
-    def getMiddleNode(self):
-        slow = fast = self.head
+        fast = slow = l1.head
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        self.printNode(slow) 
+        
+        prev = None
+        while slow:
+            current = slow.next
+            slow.next = prev
+            prev = slow
+            slow = current
+        
+        while prev:
+            if prev.data != l1.head.data:
+                print 'False'
+                return
+            prev = prev.next
+            l1.head = l1.head.next
+        print 'True'
 
 
-    def deleteNodeN(self, n):
-        i = 1
-        x = self.head
-        while x and i != n:
-            x = x.next
-            i += 1
-        self.deleteNode(x)
 
 ll = LinkedList()
+
 ll.add(1)
 ll.add(2)
 ll.add(3)
@@ -67,10 +65,7 @@ ll.add(4)
 ll.add(3)
 ll.add(2)
 ll.add(1)
-
 ll.print_linkedList()
-ll.getMiddleNode()
+ll.palindromeLinkedList(ll)
 
-# ans = ll.deleteNodeN(4)
-# print '\nAfter deleting the node: ',
-# ll.print_linkedList()
+            

@@ -42,39 +42,39 @@ class LinkedList:
             self.head = ListNode(data,self.head)
             return self.head    
     
-    def sumLinkedList(self,l1,l2):
-        if l1 is None:
-            return l2
-        if l2 is None:
-            return l1
-        carry = 0
-        prev = None
-        temp = None
-        while l1 is not None or l2 is not None:
-            
-            fdata = 0 if l1 is None else l1.data
-            sdata = 0 if l2 is None else l2.data
-
-            sum = fdata + sdata + carry
-
-            carry = 1 if sum >= 10 else 0
-            sum = sum if sum < 10 else sum %10
-
-            temp = ListNode(sum)
-            if self.head is None:
-                self.head = temp
-            else:
-                prev = temp.next
-            
-            prev = temp
-
-            if l1 is not None:
-                l1 = l1.next
-            if l2 is not None:
-                l2 = l2.next
-        if carry > 0:
-            temp.next = ListNode(carry)
+def sumLinkedList(self,l1,l2):
+    if l1 is None:
+        return l2
+    if l2 is None:
+        return l1
+    carry = 0
+    prev = None
+    temp = None
+    while l1 is not None or l2 is not None:
         
+        fdata = 0 if l1 is None else l1.data
+        sdata = 0 if l2 is None else l2.data
+
+        sum = fdata + sdata + carry
+
+        carry = 1 if sum >= 10 else 0
+        sum = sum if sum < 10 else sum %10
+
+        temp = ListNode(sum)
+        if self.head is None:
+            self.head = temp
+        else:
+            prev = temp.next
+        
+        prev = temp
+
+        if l1 is not None:
+            l1 = l1.next
+        if l2 is not None:
+            l2 = l2.next
+    if carry > 0:
+        temp.next = ListNode(carry)
+    
     # ll = LinkedList()
     # carry = 0
     # sum = 0
