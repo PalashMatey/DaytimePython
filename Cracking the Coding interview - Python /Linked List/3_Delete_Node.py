@@ -1,5 +1,4 @@
 #Given the node that must be deleted, we must delete the node. 
-from 1_RemoveDups import LinkedList
 class ListNode(object):
     def __init__(self,x):
         self.data = x
@@ -39,6 +38,19 @@ class LinkedList(object):
         node.data = node.next.data
         node.next = node.next.next
 
+    def printNode(self,node):
+        if node:
+            print '\n',node.data
+
+    def getMiddleNode(self):
+        slow = self.head
+        fast = self.head.next
+        while fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        self.printNode(slow) 
+
+    
     def deleteNodeN(self, n):
         i = 1
         x = self.head
@@ -55,7 +67,10 @@ ll.add(4)
 ll.add(5)
 ll.add(6)
 ll.add(7)
+ll.add(8)
 ll.print_linkedList()
-ans = ll.deleteNodeN(4)
-print '\nAfter deleting the node: ',
-ll.print_linkedList()
+ll.getMiddleNode()
+
+# ans = ll.deleteNodeN(4)
+# print '\nAfter deleting the node: ',
+# ll.print_linkedList()
