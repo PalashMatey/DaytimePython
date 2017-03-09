@@ -48,8 +48,17 @@ class LinkedList(object):
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        self.printNode(slow) 
-
+        self.printNode(fast) 
+    
+    def getRangeofFast(self):
+        slow = fast = self.head
+        for _ in range(2):
+            fast = fast.next
+            self.printNode(fast)
+        while fast.next:
+            slow = slow.next
+            fast = fast.next
+        self.printNode(fast)
 
     def deleteNodeN(self, n):
         i = 1
@@ -69,7 +78,7 @@ ll.add(2)
 ll.add(1)
 
 ll.print_linkedList()
-ll.getMiddleNode()
+ll.getMiddleNode
 
 # ans = ll.deleteNodeN(4)
 # print '\nAfter deleting the node: ',

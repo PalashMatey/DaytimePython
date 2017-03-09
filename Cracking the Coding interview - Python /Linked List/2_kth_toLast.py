@@ -28,9 +28,22 @@ class LinkedList:
 
     def print_linkedList(self):
         temp = self.head
+        print '\n'
         while(temp):
             print temp.data,
             temp = temp.next
+    
+    def removeKthToLast(self,k):
+        slow = fast = self.head
+        for _ in range(k):
+            fast = fast.next
+        if not fast:
+            return head.next
+        while fast.next:
+            slow = slow.next
+            fast = fast.next
+        slow.next = slow.next.next
+        self.print_linkedList()
     
     def getKthToLast(self , k):
         temp = self.head
