@@ -1,4 +1,4 @@
-Dependencies: 
+#Dependencies: 
 
 •	Python 2.7.10
 
@@ -8,7 +8,7 @@ Dependencies:
 
 •	re 2.2.1
 
-Instruction to run:	
+#Instruction to run:	
 
 •	python parseMessyApi.py
 
@@ -16,7 +16,7 @@ Instruction to run:
 The average budget of all the winners is $17226711.39
 
 
-Assumptions:
+#Assumptions:
 
 •	The first element under films is always the Winner
 
@@ -29,8 +29,7 @@ Assumptions:
 •	For a given Range: 16.5-18 million, I have considered the lower bound
 
 
-
-Approach:
+#Approach:
 
 1.	Converted string data to Json as its easier to access(Thank you for the wonderfully formatted data). 
 
