@@ -26,8 +26,8 @@ Approach:
 5.	All returned Budget Values are in Dollar
 6.	Stored all the budget values in an array
 7.	Ignored all missing values while calculating average
-a.	No trend between previous and past values of budget
-b.	No strong correlation between box office earning and budget
-c.	Within the same year there was no consistency with movie budget
+  a.	No trend between previous and past values of budget
+  b.	No strong correlation between box office earning and budget
+  c.	Within the same year there was no consistency with movie budget
 8.	Used this array to find the average
 
