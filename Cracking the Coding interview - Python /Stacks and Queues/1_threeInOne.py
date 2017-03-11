@@ -15,6 +15,14 @@ class ThreeStack:
     def pop(self,stacknum):
         if self.isEmpty(stacknum):
             raise Exception('Stack is Empty')
+        value = self.array[self.indexOfTop(stacknum)]
+        self.array[self.indexOfTop(stacknum)] = 0
+        self.sizes[stacknum] -= 1
+    
+    def peek(self,stacknum):
+        if self.isEmpty(stacknum):
+            raise Exception('Stack is Empty')
+        return self.array[self.indexOfTop(stacknum)]
         
     def isEmpty(self,stacknum):
         return self.sizes[stacknum] == 0

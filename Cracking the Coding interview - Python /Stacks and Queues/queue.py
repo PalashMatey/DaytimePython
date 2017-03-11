@@ -33,8 +33,9 @@ class Queue(object):
         return cargo
 
 q = Queue()
-q.insert(4)
-q.insert(5)
+q.insert(1)
+q.insert(2)
+q.insert(3)
 print q.remove()
 
 '''Queue implementation using Lists '''
