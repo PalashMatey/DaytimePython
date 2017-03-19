@@ -1,5 +1,5 @@
 #Leetcode Solutions
-85 problems completed
+87 problems completed
 
 #Learn Python the Hard Way
 Completed
