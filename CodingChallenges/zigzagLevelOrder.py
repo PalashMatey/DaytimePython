@@ -4,7 +4,7 @@ def ZigZagLevelOrderTraversal(root):
     #the idea is that, popping from stack s1_lr we look and left then right and push it onto s2_rl
     #It is the other way for s2_rl: We look for right and then left
     output, rl = [], True
-    #rl is used technically as an alternator
+    #rl is used as an alternator
     while s1_lr or s2_rl:
         temp = []
         if rl:
